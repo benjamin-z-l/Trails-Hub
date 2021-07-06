@@ -1,27 +1,52 @@
 import React, { useState } from 'react';
-import { Link, Re } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
-  const [searchInput, setSearchInput] = useState("")
+  const [navbar, setNavbar] = useState(false)
+  const [windowSize, setWindowSize] = useState(false)
 
-  const changeHandler = (event) => {
-    setSearchInput(event.currentTarget.value)
+  const shrinkSize = () => {
+    console.log(window.scrollY)
+    if(window.scrollY >= 100){
+      setNavbar(true)
+    } else {
+      setNavbar(false)
+    }
+  }
+  const keepOnTop = () => {
+    console.log(window.innerWidth)
+    if(window.innerWidth <= 1050){
+      setWindowSize(true)
+    } else {
+      setWindowSize(false)
+    }
   }
 
+  window.addEventListener('scroll', shrinkSize)
+  window.addEventListener('resize', keepOnTop)
+
+  let classString = "top-bar sticky"
+  if(navbar){
+    classString += ' active'
+  }
+
+  if(windowSize) {
+    classString += ' small-window'
+  }
+
+
   return (
-    <div className="top-bar grid-x">
-      <div className="cell auto"></div>
-        <div className="grid-x cell small-12 medium-8">
-          <div className="top-bar-left cell medium-4">
-            <ul className="menu">
-              <Link to="/trails">Trails Hub</Link>
-              <Link to="/trails/new">Add A New Hike</Link>
-            </ul>
-          </div>
+    <div className={classString} >
+      <div className="top-bar-left">
+        <div className="logo">
+          <Link  to="/trails">Trails Hub</Link>
         </div>
-      <div className="cell auto"></div>
+      </div>
+      <div className="add-button top-bar-right">
+        <Link to="/trails/new">Add A Trail!</Link>
+      </div>
     </div>
-  )
+  );
 };
 
 export default NavBar;

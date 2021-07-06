@@ -1,0 +1,85 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/opensans/v20/mem8YaGs126MiZpBA-UFWJ0bf8pkAp6a.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway&display=swap');
+
+:root {
+  -moz-tab-size: 4;
+  tab-size: 4;
+  --main-bg: #fffffe;
+  --card-bg: #f8f5f2;
+  --card-paragraph: #222525;
+  --navbar: #078080;
+  --tertiary: #f8f5f2;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+}
+
+.filter-container input[type='text'], select {
+  font-size: 12px;
+  height: 2em;
+  border-radius: 10px;
+}
+
+// .filter-container input[type='range'] {
+//   background-color: var(--navbar);
+// }
+
+.filter-container label {
+  font-size: 14px;
+}
+
+.filter-container button {
+  background-color: var(--navbar);
+}
+
+.trail-tiles-container-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.trail-tile-container-single {
+  height: 12em;
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  margin: 0.8rem;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+}
+
+.trail-tile-img {
+  height: 10em;
+  width: 14em;
+  border-radius: 10px;
+}
+
+.trail-tile-container-single h3 {
+  font-size: 15px;
+}
+
+.trail-tile-container-single h4 {
+  font-size: 12px;
+  color: var(--card-paragraph);
+}
+
+.trail-tile-container-single .text-box {
+  width: 60%;
+  padding-left: 1rem;
+}
+
+.labelKey {
+  font-weight: bold;
+}

@@ -35,7 +35,7 @@ const FilterForm = props => {
       [event.currentTarget.name]: event.currentTarget.value
     });
   };
-  
+
   const buildQueryString = () => {
     let queryString = '';
     Object.keys(filterFormData).forEach(field => {
@@ -50,8 +50,8 @@ const FilterForm = props => {
 
   return (
     <form>
-      <div className="grid-x grid-padding-x">
-        <div className="cell small-4">
+      <div className="filter-container">
+        <div className="">
           <label htmlFor="Trail Name">Trail Name: </label>
           <input
             name="name"
@@ -61,9 +61,10 @@ const FilterForm = props => {
             onChange={changeHandler}
           />
         </div>
+        <DifficultyFormField changeHandler={changeHandler} difficulty={filterFormData.difficulty} />
         <div>
-          <label htmlFor="distance">Distance (miles): {filterFormData.distance}</label>
-          <input 
+          <label htmlFor="distance">Length (miles): {filterFormData.distance}</label>
+          <input
             type="range"
             name="distance"
             id="distance"
@@ -73,15 +74,14 @@ const FilterForm = props => {
             onChange={changeHandler}
           />
         </div>
-        <DifficultyFormField changeHandler={changeHandler} difficulty={filterFormData.difficulty} />
         <div>
           <Link to={`/trails?${queryString}`}>
-              <button type="button" className="button">
-                <i className="fas fa-search"></i>
-              </button>
+            <button type="button" className="button">
+              <i class="fas fa-search-plus"></i>
+            </button>
           </Link>
           <Link onClick={clearForm} to={`/trails`}>
-            Clear Filters
+            Clear
           </Link>
 
         </div>

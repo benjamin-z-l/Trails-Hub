@@ -1,0 +1,26 @@
+:root {
+  --main-bg: #fffffe;
+  --card-bg: #f8f5f2;
+  --card-paragraph: #222525;
+  --navbar: #078080;
+  --tertiary: #f8f5f2;
+}
+
+.new-trail-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-trail-header {
+  font-style: italic;
+}
+
+.new-trail-container input[type='text'], input[type='number'], textarea, select {
+  border-radius: 10px;
+}
+
+.new-trail-container input[type='submit'] {
+  background-color: var(--navbar);
+  width: 10em;
+  border-radius: 10px;
+}

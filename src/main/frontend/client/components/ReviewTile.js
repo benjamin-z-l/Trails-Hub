@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom"
 
 import ReviewImageTile from "./ReviewImageTile"
 import ReviewEditForm from "./ReviewEditForm"
+import AverageStarRating from "./AverageStarRating"
 
 const ReviewTile = (props) => {
   const { name } = props.review.user
@@ -25,9 +26,6 @@ const ReviewTile = (props) => {
     event.preventDefault()
     props.deleteReviewHandler(id)
   }
-
-  const starRating = "★ ".repeat(rating)
-  const missingStars = "★ ".repeat(5-rating)
 
   if (editMode) {
     return (
@@ -53,8 +51,7 @@ const ReviewTile = (props) => {
             </div>
             <div>
               <p>Rating:
-                <span className="starRating">{starRating}</span>
-                <span className="missingStars">{missingStars}</span>
+                <AverageStarRating reviews={[props.review]}/>
               </p>
             </div>
           </div>

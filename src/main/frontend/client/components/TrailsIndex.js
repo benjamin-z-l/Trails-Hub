@@ -28,7 +28,7 @@ const TrailsIndex = props => {
   },[])
 
   let filteredTrails = [...trails];
-  
+
   searchParams.forEach((value, key) => {
     filteredTrails = filteredTrails.filter(trail => {
       if (key === "name") {
@@ -49,7 +49,7 @@ const TrailsIndex = props => {
 
   const trailTiles = filteredTrails.map(trail => {
     return(
-      <div className="callout primary container">
+      <div>
         <TrailTile
           key={trail.id}
           trail={trail}
@@ -59,8 +59,7 @@ const TrailsIndex = props => {
   })
 
   return(
-    <div>
-      <h1>Explore the Nature!</h1>
+    <div className="trail-tiles-container-main">
       <FilterForm searchParams={searchParams} />
       {trailTiles}
     </div>

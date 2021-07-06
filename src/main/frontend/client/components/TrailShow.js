@@ -113,38 +113,70 @@ const TrailShow = props => {
 
   return (
     <div>
-      <div>
-        <img src={imgUrl} />
-      </div>
-      <Link to={{ pathname: `/trails/${trailId}/reviews/new`, state: { trail: trail} }} >Add Review</Link>
-      <div>
-        <h1>{name}</h1>
-      </div>
-      <div className="grid-x grid-margin-x callout primary">
-        <div className="cell small-12 medium-12 large-4 callout">
-          <div>
-            <p>
-              <span className="labelKey">Rating:</span>
-              <AverageStarRating reviews={reviews} />
-            </p>
-          </div>
-          <p><span className="labelKey">Difficulty</span>: {difficulty}</p>
-          <p><span className="labelKey">Distance</span>: {distance} miles</p>
-          <p><span className="labelKey">Elevation Gain</span>: {elevationGain} ft</p>
-          <p><span className="labelKey">Location</span>: {zipCode}</p>
-          <div className="grid-x grid-margin-x">
-            <div className="cell small-5">
-              <Link
-                to={{ pathname: `/trails/${trailId}/edit`, state: { trail: trail } }}>
-                <button type="button" className="button">Edit Trail</button>
-              </Link>
-            </div>
-            <div className="cell small-6">
-              <button type="button" className="button" onClick={deleteTrailHandler}>Delete Trail </button>
+      <h1 className="aspect-ratio-box">
+        <div className="aspect-ratio-box-inside">
+          <div className="flexbox-centering">
+            <div className="viewport-sizing">
+             <img className="show-image" src={imgUrl} />
             </div>
           </div>
         </div>
-        <div className="cell small-12 medium-12 large-8">
+      </h1>
+
+      <div className="grid-x grid-margin-x show-content">
+        <div className="trail-info-left cell small-12 medium-12 large-6">
+          <div className="trail-title-show">
+            <h1>
+              {name}
+    
+          
+              <button class="config-button" type="button" data-toggle="example-dropdown-1"><i class="fas fa-cog"></i></button>
+              <div class="dropdown-pane" id="example-dropdown-1" data-dropdown data-hover="true" data-hover-pane="true">
+              <div className="grid-x grid-margin-x">
+                  <div className="cell small-5">
+                    <Link
+                      to={{ pathname: `/trails/${trailId}/edit`, state: { trail: trail } }}>
+                      <button type="button" className="button">Edit Trail</button>
+                    </Link>
+                  </div>
+                  <div className="cell small-6">
+                    <button type="button" className="button" onClick={deleteTrailHandler}>Delete Trail </button>
+                  </div>
+                </div>
+                </div>
+
+
+            </h1>
+          </div>
+          <div className="trail-attributes">
+            <p className="attribute-line">
+              <span className="trail-attribute">
+                <span className="labelKey">Difficulty: </span>
+                <span className={`difficulty-tag ${trail.difficulty}`}>{difficulty}</span>
+              </span>
+        
+              <span className="trail-attribute">
+                <span className="labelKey">Rating: </span>
+                <AverageStarRating reviews={reviews} />
+              </span>
+            </p>
+            <p className="attribute-line">
+              <span className="trail-attribute">
+                <span className="labelKey">Distance:</span> {distance} miles
+              </span>
+              
+              <span className="trail-attribute">
+                <span className="labelKey">Elevation Gain:</span> {elevationGain} ft
+              </span>
+            </p>
+            <p className="attribute-line" >
+              <span className="trail-attribute">
+                <span className="labelKey">Location:</span> {zipCode}
+              </span>
+            </p>
+          </div>
+        </div>
+        <div className="cell small-12 medium-12 large-6">
           <h5>Description</h5>
           <p>{description}</p>
         </div>

@@ -13,16 +13,15 @@ const AverageStarRating = props => {
       avgRating = Math.round(totalStarRating/allRatings.length)
       starRating = "★ ".repeat(avgRating)
       missingStars = "★ ".repeat(5-avgRating)
+      return (
+        <span className="star-rating-span">
+          <span className="star starRating">{starRating}</span>
+          <span className="star missingStars">{missingStars}</span>
+        </span>
+      )
     } else {
-      missingStars = "Not Rated"
+     return <span>Not Rated</span>
     }
-
-  return (
-    <>
-      <span className="starRating">{starRating}</span>
-      <span className="missingStars">{missingStars}</span>
-    </>
-  )
 }
 
 export default AverageStarRating

@@ -1,22 +1,191 @@
 @import "./foundation/settings";
 @import "~foundation-sites/scss/foundation";
 @include foundation-everything;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway&display=swap');
 // place global css here
+
+@font-face {
+  font-family: 'Jomhuria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/jomhuria/v12/Dxxp8j-TMXf-llKur1byOuA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Megrim';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/megrim/v11/46kulbz5WjvLqJZVam_h.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/jetbrainsmono/v6/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxTOlOV.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+$gray-green: #718f94;
+$light-green: #d9efdb;
+$bluish: #91afd6;
+$beige: #d9c686;
+$secondary-red: #f45d48;
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: 'Open Sans';
 }
 
 :root {
   -moz-tab-size: 4;
   tab-size: 4;
+  --main-bg: #fffffe;
+  --card-bg: #f8f5f2;
+  --card-paragraph: #222525;
+  --navbar: #078080;
+  --footer: #078080;
+  --tertiary: #f8f5f2;
 }
+
+.labelKey {
+  font-weight: bold;
+}
+
+body {
+  background-color: var(--main-bg);
+}
+
+.main-content {
+  margin-top: 6em;
+}
+
+/* difficulty tags */
+
+.difficulty-tag {
+  padding: 5px;
+  font-size: .75em;
+  font-weight: bold;
+  margin-top: 0px;
+  border-radius: 5px;
+}
+
+.Moderate {
+  background-color: gold;
+}
+
+.Easy {
+  background-color: mediumspringgreen;
+}
+
+.Hard {
+  background-color: red;
+}
+
+/* end difficulty tags */
+
+///////////// TOP BAR ///////////////
+.top-bar {
+  height: 6em;
+  height: 5em;
+//  background-color: $secondary-red;
+  align-items: center;
+  background-color: var(--navbar);
+}
+
+.top-bar a {
+  font-family: 'Megrim', cursive;
+}
+
+.logo {
+  a { color: white; }
+  font-family: 'Megrim', cursive;
+  font-size: 3.5em;
+  font-weight: 800;
+  letter-spacing: .01em;
+  line-height: .7em;
+  margin-left: .5em;
+  margin-top: 15px;
+  transition: .3s;
+}
+
+.logo:hover,.logo:visited {
+  color: black;
+}
+
+.add-button > a {
+  color: white;
+  border: 3px solid var(--tertiary);
+  border-radius: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  margin-right: 3em;
+  padding: .5em .75em;
+  transition: .3s;
+}
+
+.add-button > a:hover {
+  color: var(--card-paragraph);
+  background-color: white;
+}
+
+.active {
+//   z-index: -1;
+  height: 3em;
+}
+
+.active .logo {
+  font-size: 2em;
+}
+
+.active .add-button {
+  font-size: .75em;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.sticky.small-window{
+  height: 5em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky.small-window.active{
+  height: 3em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+///////////// END BAR ///////////////
+
 
 .review-image {
   width: 25%;
   margin-right: 1em;
 }
+///////////// FOOTER ///////////////
+
+.footer {
+  height: 300px;
+  padding: 80px 0;
+}
+///////////// END FOOTER ///////////////
+
+
+/////////// STAR RATING ///////////////
 
 .labelKey {
   font-weight: bold;
@@ -72,3 +241,41 @@
 .missingStars {
   color: #ccc;
 }
+
+.star {
+  font-size: 1.6em;
+  letter-spacing: -0.125em;
+  -webkit-text-stroke: 1px dimgray; /* width and color */
+}
+
+.star-rating-span {
+  margin-left: .5em;
+  margin-right: .5em;
+}
+
+/////////// END STAR RATING ///////////////
+
+////////// Z-index ///////////////
+
+.z-index {
+  z-index:-9999;
+}
+
+////////// END Z-index ////////////
+
+/////////// FOOTER //////////////////
+.footer{
+  color: white;
+  margin: 200px 0px 0px 0px;
+  background-color: var(--footer);
+  padding: 10px 10px;
+  height: auto;
+  font-family: 'Megrim', cursive;
+}
+
+.other-platform-links {
+  color: #6ad44c;
+}
+
+////////// END FOOTER ///////////////
+@import url(show-page.scss);
